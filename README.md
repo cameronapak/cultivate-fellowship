@@ -3,7 +3,7 @@
 > [!NOTE]
 > This is very much a work in progress. 
 
-A calm space to cultivatecultivate fellowship, deep thought, and meaningful conversation.
+A calm space to cultivate fellowship, deep thought, and meaningful conversation.
 
 ## Vision
 
