@@ -1,149 +1,236 @@
-# Freedom Stack v3
+# WIP: Cultivate
 
-A no-build, un-bloated stack built upon Web Standards that feels freeing to use and can be deployed anywhere.
+> [!NOTE]
+> This is very much a work in progress. 
 
-![banner](./banner.png)
+A calm space to cultivatecultivate fellowship, deep thought, and meaningful conversation.
 
-> [!IMPORTANT]
-> This README is a work in progress and will improve over time.
+## Vision
 
-## Uses
+[Ponder](https://ponder.us) unfortunately shut down. I got permission to build a tool inspired by it. The goal: cultivate fellowship, deep thought, and meaningful conversation.
 
-- [Bun](https://bun.sh) - Used by default for package management and runtime. To use a different runtime (e.g., Node.js), update the imports in [@bknd.config.ts](./bknd.config.ts) to use the appropriate adapter
-- [Hono + Hono JSX](https://hono.dev) - Fast, lightweight, built on Web Standards. Support for any JavaScript runtime.
-- [Datastar](https://data-star.dev/) - Hypermedia backend and front-end framework (takes the best of HTMX and Alpine.js)
-- [Basecoat](https://basecoatui.com/) - Shadcn UI-like component CSS library without the need for React
-- [UnoCSS](https://unocss.dev/) - Runtime-build alternative to TailwindCSS
-- [Bknd](https://bknd.io) - Comprehensive backend SDK with auth, db, and Admin UI
+No algorithmic feeds. No read receipts. No typing indicators. No online status. Just calm discussion.
 
-## AI Coding Agent Ready
+## Core Concepts
 
-Freedom Stack v3 should work well with AI agents, enabling you to vibe code. Comes with an AGENTS.md file and includes grep.app and Context7 MCP servers for those who use OpenCode. 
+### Groups
 
-Got questions about Freedom Stack v3? [![zread](https://img.shields.io/badge/Ask_Zread-_.svg?style=flat-square&color=00b0aa&labelColor=000000&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuOTYxNTYgMS42MDAxSDIuMjQxNTZDMS44ODgxIDEuNjAwMSAxLjYwMTU2IDEuODg2NjQgMS42MDE1NiAyLjI0MDFWNC45NjAxQzEuNjAxNTYgNS4zMTM1NiAxLjg4ODEgNS42MDAxIDIuMjQxNTYgNS42MDAxSDQuOTYxNTZDNS4zMTUwMiA1LjYwMDEgNS42MDE1NiA1LjMxMzU2IDUuNjAxNTYgNC45NjAxVjIuMjQwMUM1LjYwMTU2IDEuODg2NjQgNS4zMTUwMiAxLjYwMDEgNC45NjE1NiAxLjYwMDFaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00Ljk2MTU2IDEwLjM5OTlIMi4yNDE1NkMxLjg4ODEgMTAuMzk5OSAxLjYwMTU2IDEwLjY4NjQgMS42MDE1NiAxMS4wMzk5VjEzLjc1OTlDMS42MDE1NiAxNC4xMTM0IDEuODg4MSAxNC4zOTk5IDIuMjQxNTYgMTQuMzk5OUg0Ljk2MTU2QzUuMzE1MDIgMTQuMzk5OSA1LjYwMTU2IDE0LjExMzQgNS42MDE1NiAxMy43NTk5VjExLjAzOTlDNS42MDE1NiAxMC42ODY0IDUuMzE1MDIgMTAuMzk5OSA0Ljk2MTU2IDEwLjM5OTlaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik0xMy43NTg0IDEuNjAwMUgxMS4wMzg0QzEwLjY4NSAxLjYwMDEgMTAuMzk4NCAxLjg4NjY0IDEwLjM5ODQgMi4yNDAxVjQuOTYwMUMxMC4zOTg0IDUuMzEzNTYgMTAuNjg1IDUuNjAwMSAxMS4wMzg0IDUuNjAwMUgxMy43NTg0QzE0LjExMTkgNS42MDAxIDE0LjM5ODQgNS4zMTM1NiAxNC4zOTg0IDQuOTYwMVYyLjI0MDFDMTQuMzk4NCAxLjg4NjY0IDE0LjExMTkgMS42MDAxIDEzLjc1ODQgMS42MDAxWiIgZmlsbD0iI2ZmZiIvPgo8cGF0aCBkPSJNNCAxMkwxMiA0TDQgMTJaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00IDEyTDEyIDQiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K&logoColor=ffffff)](https://zread.ai/cameronapak/freedom-stack-v3)
+The top-level concept. A group has:
 
-Install any skill that you might think is helpful, and in most cases, all the skills will be helpful:
+- **Discussions** — threaded conversations with a title, body, and flat replies
+- **Members** — people invited to the group and their roles
+- **About** — group description and info
 
-```bash
-npx add-skill cameronapak/bknd-skills
-```
+**Visibility** is set at the group level:
 
-## How To
+- **Public** — anyone can read discussions, only members can post. Good for those who want their conversations searchable on the web via SEO
+- **Private** — members-only for reading and posting
 
-Click the "use this template" button on GitHub or... [use this template](https://github.com/new?template_name=freedom-stack-v3)
+**Membership** is invite-only:
 
-Then, clone the repo to your local machine.
+- Admins share an invite link
+- Admins can manually add members
 
-Get the environment variables set up:
+**Roles:**
 
-```bash
-cp .env.example .env
-```
+- **Admin** — can delete any post/discussion/reply, remove members, manage group settings
+- **Member** — can create discussions, reply, edit/delete own content
 
-Next, install dependencies:
+### Discussions
 
-```bash
-bun install
-```
+- **Title + Body + Replies** (flat, no nesting)
+- **Markdown** supported in body and replies
+- **Images and attachments** allowed (reasonable size limits, stored on R2)
+- **Long-form encouraged** — the UI should invite thoughtful writing
+- **Editable** — authors can edit their own posts, with an "edited" indicator
+- **Deletable** — authors can delete their own posts, admins can delete any
 
-To seed the data:
+### Users
 
-> [!WARNING]
-> Seeding will be broken until https://github.com/bknd-io/bknd/pull/339 is merged into bknd, so you may decide to not use bknd's code mode at this time.
+Lightweight profiles:
 
-```bash
-bun run seed # There may be issues seeding in code mode in bknd <= v0.20.0
-```
+- Name
+- Avatar (user-uploaded, stored on R2)
+- Bio
+- Email (only visible to members)
 
-To run:
+### Search
 
-```bash
-bun run dev
-```
+Users can search discussions within a group.
 
-## Resources
+### Reporting
 
-### Bknd Skills
+Any member can report content. Admins review reports.
 
-[Bknd Skills](https://github.com/cameronapak/bknd-skills/) is included in Freedom Stack v3 to help your AI agent better understand how to work with Bknd. 
+---
 
-To update Bknd Skills, run:
+## Intentionally Excluded (For Now)
 
-```bash
-bun run update-bknd-skills
-```
+- Reactions/likes
+- Nested/threaded replies
+- Tags/categories
+- Dark mode
+- Real-time updates (no SSE/WebSockets — manual refresh is calm)
+- Typing indicators, read receipts, online status
+- Algorithmic ranking or feeds
+- Per-discussion visibility controls
+
+---
+
+## Future Considerations
+
+- **Digest email notifications** — batched, not instant
+- **RSS feeds** per group or discussion
+- **Anyone can create a group** (currently curated/single-group)
+- **Reactions** (e.g., a single "ponder" or heart reaction)
+- **Dark mode**
+
+---
+
+## Tech Stack
+
+- **[Hono](https://hono.dev)** — web framework, built on Web Standards
+- **[Hono JSX](https://hono.dev)** — server-side rendering
+- **[Bknd](https://bknd.io)** — auth, database, storage, admin UI
+- **[Datastar](https://data-star.dev/)** — hypermedia frontend (HTMX + Alpine.js concepts)
+- **[Basecoat](https://basecoatui.com/)** — component CSS library (no React)
+- **[UnoCSS](https://unocss.dev/)** — runtime CSS
+
+### Deployment
+
+- **Cloudflare Workers** — compute
+- **Cloudflare D1** — SQLite database
+- **Cloudflare R2** — file storage (avatars, attachments)
 
 ### Philosophy
 
-- [The The Grug Brained Developer](https://grugbrain.dev/), a layman's guide to thinking like the self-aware smol brained
-- [What is HATEOAS?](https://htmx.org/essays/hateoas/)
+- No build step
+- State lives on the backend (HATEOAS)
+- Simple, calm UI — no visual noise
+- Works well with AI coding agents
 
-### Specific
+---
 
-- [Connect your favorite Postgres or SQLite db to Bknd](https://docs.bknd.io/usage/database/)
-- [Learn about the different modes of Bknd](https://docs.bknd.io/usage/introduction/#modes)
-- [Learn about the Bknd config](https://docs.bknd.io/extending/config/)
-- [How to host Hono with Netlify](https://hono.dev/docs/getting-started/netlify) or [Vercel](https://hono.dev/docs/getting-started/vercel) or [Cloudflare Workers](https://hono.dev/docs/getting-started/cloudflare-workers)
+## Data Model (Draft)
 
-### Dig Deeper with Zread
+### groups
 
-Learn about and ask Zread's AI about...
+| Field | Type | Notes |
+|-------|------|-------|
+| id | string | primary key |
+| name | string | group name |
+| description | text | shown on About tab |
+| visibility | enum | `public` or `private` |
+| icon | string | group icon URL (R2) |
+| created_at | timestamp | |
 
-- [Bknd](https://zread.ai/bknd-io/bknd)
-- [Datastar](https://zread.ai/starfederation/datastar)
-- [Hono](https://zread.ai/honojs/hono)
-- [Basecoat](https://zread.ai/hunvreus/basecoat)
-- [UnoCSS](https://zread.ai/unocss/unocss)
+### users
 
-> [!NOTE]
-> If you find Zread responds in Chinese, you may have to tell it to respond in English. 
+| Field | Type | Notes |
+|-------|------|-------|
+| id | string | primary key |
+| name | string | display name |
+| email | string | unique |
+| avatar | string | URL (R2) |
+| bio | text | optional |
+| created_at | timestamp | |
 
-Extend your AI coding agent's understanding of these packages by using the [Zread MCP Server](https://docs.z.ai/devpack/mcp/zread-mcp-server)
+### memberships
 
-### Courses
+| Field | Type | Notes |
+|-------|------|-------|
+| id | string | primary key |
+| user_id | string | FK → users |
+| group_id | string | FK → groups |
+| role | enum | `admin` or `member` |
+| joined_at | timestamp | |
 
-- Lock In Code on YouTube has a fun, free [Datastar Series](https://www.youtube.com/watch?v=I8QLWWPGT-c&list=PLbqyjFEQew904tnpc7dtc6VuyX7HikBfR&index=1)
+### discussions
 
-## Why a new version?
+| Field | Type | Notes |
+|-------|------|-------|
+| id | string | primary key |
+| group_id | string | FK → groups |
+| author_id | string | FK → users |
+| title | string | |
+| body | text | markdown |
+| edited | boolean | default false |
+| created_at | timestamp | |
+| updated_at | timestamp | |
 
-Let's take a stroll down memory lane.
+### replies
 
-I built the first version of [Freedom Stack](https://github.com/cameronapak/freedom-stack) while learning full-stack web dev. I wanted to help others who were hungry to create have the tools to make their dream a reality.
+| Field | Type | Notes |
+|-------|------|-------|
+| id | string | primary key |
+| discussion_id | string | FK → discussions |
+| author_id | string | FK → replies |
+| body | text | markdown |
+| edited | boolean | default false |
+| created_at | timestamp | |
+| updated_at | timestamp | |
 
-Freedom Stack v1: Astro, Astro DB, HTMX, Alpine.js, Better Auth, DaisyUI + TailwindCSS. I used it for a bunch of web apps, including the homescreen of the [Wisephone II](https://wisephone.com/). 
+### attachments
 
-It's wild to see the postive reception people have had for Freedom Stack.
+| Field | Type | Notes |
+|-------|------|-------|
+| id | string | primary key |
+| url | string | R2 URL |
+| filename | string | |
+| size | integer | bytes |
+| mime_type | string | |
+| uploaded_by | string | FK → users |
+| discussion_id | string | nullable FK |
+| reply_id | string | nullable FK |
+| created_at | timestamp | |
 
-Over time, I'd learned in the field. AI coding improved dramatically. I saw what made Freedom Stack great and where it fell short. So I built [Freedom Stack v2](https://github.com/cameronapak/freedom-stack-v2).
+### invites
 
-v2 was built upon Astro, Alpine.js + Alpine AJAX, TailwindCSS v4 + Basecoat UI, and Bknd.
+| Field | Type | Notes |
+|-------|------|-------|
+| id | string | primary key |
+| group_id | string | FK → groups |
+| code | string | unique invite code |
+| created_by | string | FK → users |
+| expires_at | timestamp | nullable |
+| created_at | timestamp | |
 
-The truth is I only built one app with v2 (a skateboard deck designer). It remains a work in progress. Honestly, I think v2 was really about exploring [Bknd](https://bknd.io/), which gives you db, auth, storage, plugins, and workflows in a single package.
+### reports
 
-I'm a huge believer in Bknd because it fulfills what I wanted from day one:
+| Field | Type | Notes |
+|-------|------|-------|
+| id | string | primary key |
+| reporter_id | string | FK → users |
+| discussion_id | string | nullable FK |
+| reply_id | string | nullable FK |
+| reason | text | |
+| resolved | boolean | default false |
+| created_at | timestamp | |
 
-> "A stack that's powerful like Ruby on Rails ('The One Person Framework'), but with the ease and 'vanilla' web dev feel of Astro."
+---
 
-So... why v3, another version?
+## Pages (Draft)
 
-One word: bloat.
+| Route | Description |
+|-------|-------------|
+| `/` | Landing / marketing page |
+| `/login` | Login |
+| `/register` | Register (via invite link) |
+| `/g/:slug` | Group home — discussions list |
+| `/g/:slug/members` | Members tab |
+| `/g/:slug/about` | About tab |
+| `/g/:slug/d/:id` | Discussion detail + replies |
+| `/g/:slug/d/new` | New discussion form |
+| `/g/:slug/settings` | Group settings (admin) |
+| `/profile` | Edit own profile |
+| `/admin` | Bknd admin UI |
 
-For the past couple years, I've loved working with [Val.Town](https://val.town). Think CodePen but instantly deployed, no devops headaches. Val.Town taught me to love the Hono web framework and the no-build lifestyle.
+---
 
-I was using Alpine.js in Astro with client-side bundling to do too much on the client. Codebases bloated quickly. Late in 2025, because of bloat and slowness, I converted a Freedom Stack app to React + Tanstack Router, going full SPA. _(aside: Anything Tanstack makes using React actually enjoyable.)_ 
+## Getting Started
 
-Alpine.js and HTMX are different libraries. You have to glue them together. When I found Datastar through [this talk by Delaney Gillilan](https://www.youtube.com/watch?v=0K71AyAF6E4), it became the solution to my Alpine.js and HTMX woes.
-
-I began to realize some widely adopted full-stack frameworks like Laravel and Rails had a far clearer separation between backend and front-end because they were each written in different languages. When JS/TS makes up the front-end and the backend, then things seem to get messy faster, in my opinion. 
-
-[The Tao of Datastar](https://data-star.dev/guide/the_tao_of_datastar) states that: _"Most state should live in the backend. Since the frontend is exposed to the user, the backend should be the source of truth for your application state."_ That's what's known as HATEOAS (Hypermedia as the Engine of Application State). And after years of building, I believe it.
-
-So v3 is no-build, no-bundle. It forces me to keep state on the backend where it belongs. It works with Val.Town. It works anywhere, because it's built on Web Standards.
-
-Freedom Stack v3 is simpler. Lighter. Deployable anywhere.
-
-And that feels freeing.
-
-Welcome to Freedom Stack v3!
-
-— from [Cameron Pak](https://cameronpak.com)
+```bash
+cp .env.example .env
+bun install
+bun run dev
+```
