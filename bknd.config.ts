@@ -1,0 +1,122 @@
+import { em, entity, text } from 'bknd'
+import { type BunBkndConfig, registerLocalMediaAdapter, writer } from 'bknd/adapter/bun'
+import { sqlite } from 'bknd/adapter/sqlite'
+import { code } from 'bknd/modes'
+import { timestamps } from 'bknd/plugins'
+import { secureRandomString } from 'bknd/utils'
+
+// Uncomment this line if you want to use node instead of bun
+// import { type NodeBkndConfig, writer, registerLocalMediaAdapter } from 'bknd/adapter/node'
+
+const local = registerLocalMediaAdapter()
+
+const schema = em(
+  {
+    posts: entity('posts', {
+      content: text().required(),
+      url: text(),
+    }),
+  }
+  // Bug: this fails because `Field "created_at" not found on entity "posts"`
+  // This may be a race condition of the timestamps plugin and indexing
+  // ({ index }, { posts }) => {
+  //   index(posts).on(['created_at'])
+  // }
+)
+
+// Register the schema to get automatic type completion
+type Database = (typeof schema)['DB']
+declare module 'bknd' {
+  interface DB extends Database {}
+}
+
+const config = code<BunBkndConfig>({
+  connection: sqlite({ url: 'file:data.db' }),
+  config: {
+    media: {
+      enabled: true,
+      adapter: local({
+        path: './public/uploads', // Files will be stored in this directory
+      }),
+    },
+    data: schema.toJSON(),
+    auth: {
+      allow_register: true,
+      enabled: true,
+      cookie: {
+        pathSuccess: '/admin',
+      },
+      jwt: {
+        issuer: 'bknd-astro-example',
+        secret: secureRandomString(64),
+      },
+      guard: {
+        enabled: !!(process.env.BKND_SEED_ADMIN_USERNAME && process.env.BKND_SEED_ADMIN_PASSWORD),
+      },
+      roles: {
+        admin: {
+          implicit_allow: true,
+        },
+        default: {
+          permissions: ['system.access.api', 'data.database.sync', 'data.entity.read', 'media.file.read', 'media.file.list'],
+          is_default: true,
+        },
+      },
+    },
+  },
+  options: {
+    plugins: [
+      timestamps({
+        // the entities to add timestamps to
+        entities: ['posts'],
+        // whether to set the `updated_at` field on create, defaults to true
+        setUpdatedOnCreate: true,
+      }),
+    ],
+    // If you want this seed to run, you must manually run the seed command
+    // `bun node_modules/.bin/bknd sync --seed --force`
+    seed: async (ctx) => {
+      if (process.env.BKND_SEED_ADMIN_USERNAME && process.env.BKND_SEED_ADMIN_PASSWORD) {
+        // create an admin user
+        await ctx.app.module.auth.createUser({
+          email: process.env.BKND_SEED_ADMIN_USERNAME,
+          password: process.env.BKND_SEED_ADMIN_PASSWORD,
+          role: 'admin',
+        })
+      }
+
+      await ctx.em.mutator('posts').insertMany([
+        { content: 'Just shipped a new feature! The feeling of deploying something you built from scratch never gets old.' },
+        {
+          content: 'Hot take: TypeScript is just documentation that happens to compile.',
+          url: 'https://twitter.com/example/status/123',
+        },
+        { content: 'Today I learned that SQLite can handle way more than most people think. Millions of rows? No problem.' },
+        { content: 'Reading "Designing Data-Intensive Applications" for the third time. Still finding new insights.' },
+        { content: "Simplicity is the ultimate sophistication. Delete that abstraction you don't need yet." },
+        { content: "Coffee count today: ☕☕☕☕ (it's only 2pm)" },
+        {
+          content: 'The best code is no code. The second best is code someone else already wrote and tested.',
+          url: 'https://github.com/bknd-io/bknd',
+        },
+        {
+          content:
+            'Debugging tip: explain the problem to a rubber duck. If that fails, explain it to a coworker. If that fails, take a walk.',
+        },
+      ])
+    },
+  },
+  writer,
+  typesFilePath: 'bknd-types.d.ts',
+  isProduction: process.env?.PROD === 'true',
+  syncSchema: {
+    force: true,
+    drop: true,
+  },
+  adminOptions: {
+    adminBasepath: '/admin',
+    logoReturnPath: '/../',
+  },
+})
+
+export default config
